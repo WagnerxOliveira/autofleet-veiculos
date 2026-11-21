@@ -60,7 +60,7 @@ body {
   padding: 0 1.25rem;
 }
 
-/* Alerta de Configuração */
+/* Alerta de Configuração (Apenas Ambiente de Desenvolvimento) */
 .config-alert {
   background-color: #7c2d12;
   color: #ffedd5;
@@ -121,52 +121,6 @@ body {
 .brand__subtitle {
   font-size: 0.8rem;
   color: var(--text-muted);
-}
-
-/* Status Pill */
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-color);
-}
-
-.status-pill__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.status-pill--connecting {
-  background: var(--amber-soft);
-  color: var(--amber);
-  border-color: var(--amber-border);
-}
-.status-pill--connecting .status-pill__dot {
-  background: var(--amber);
-}
-
-.status-pill--online {
-  background: var(--success-soft);
-  color: var(--success);
-  border-color: #bbf7d0;
-}
-.status-pill--online .status-pill__dot {
-  background: var(--success);
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
-}
-
-.status-pill--offline {
-  background: var(--danger-soft);
-  color: var(--danger);
-  border-color: #fecaca;
-}
-.status-pill--offline .status-pill__dot {
-  background: var(--danger);
 }
 
 /* Layout Principal */
@@ -333,6 +287,12 @@ body {
   letter-spacing: 0.05em;
 }
 
+.mono-input:placeholder-shown {
+  font-family: inherit !important;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 .form-group input:focus,
 .sort-select:focus,
 .search-box input:focus {
@@ -461,7 +421,7 @@ body {
 
 .search-box {
   position: relative;
-  min-width: 250px;
+  min-width: 270px;
 }
 
 .search-box__icon {
@@ -755,5 +715,6 @@ body {
   .search-box,
   .sort-select {
     width: 100%;
+    min-width: 0;
   }
 }

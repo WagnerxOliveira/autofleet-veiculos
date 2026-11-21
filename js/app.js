@@ -45,8 +45,6 @@ const state = {
 // Referências de DOM
 const el = {
   configAlert: document.getElementById("config-alert"),
-  connectionStatus: document.getElementById("connection-status"),
-  connectionText: document.getElementById("connection-text"),
   kpiTotal: document.getElementById("kpi-total"),
   kpiAvgKm: document.getElementById("kpi-avg-km"),
   kpiNewestYear: document.getElementById("kpi-newest-year"),
@@ -107,11 +105,6 @@ function showToast(message, type = "info") {
   }, 4000);
 }
 
-function setConnectionBadge(mode, text) {
-  el.connectionStatus.className = `status-pill status-pill--${mode}`;
-  el.connectionText.textContent = text;
-}
-
 function clearValidationErrors() {
   Object.keys(el.errors).forEach((field) => {
     el.errors[field].textContent = "";
@@ -145,7 +138,7 @@ function enterEditMode(vehicle) {
   el.formModeBadge.textContent = `Editando • ${formatPlateDisplay(vehicle.placa)}`;
   el.formTitle.textContent = "Alterar Automóvel";
   el.formSubtitle.textContent =
-    "Modifique os campos desejados e salve para atualizar o registro no Firestore.";
+    "Altere os campos desejados e salve para atualizar o cadastro do veículo.";
   el.btnSubmit.textContent = "Salvar Alterações";
   el.btnCancelEdit.classList.remove("hidden");
 
@@ -167,7 +160,7 @@ function exitEditMode(resetFields = true) {
   el.formModeBadge.textContent = "Novo Registro";
   el.formTitle.textContent = "Cadastrar Automóvel";
   el.formSubtitle.textContent =
-    "Preencha os dados obrigatórios para persistir o veículo no Firebase.";
+    "Preencha os campos obrigatórios para registrar o veículo na frota.";
   el.btnSubmit.textContent = "Cadastrar Automóvel";
   el.btnCancelEdit.classList.add("hidden");
 
@@ -263,7 +256,7 @@ function renderVehicleList() {
     if (totalCount === 0) {
       el.emptyTitle.textContent = "Nenhum automóvel cadastrado";
       el.emptyDesc.textContent =
-        "Utilize o formulário ao lado para registrar o primeiro veículo no banco de dados.";
+        "Utilize o formulário ao lado para registrar o primeiro veículo da frota.";
     } else {
       el.emptyTitle.textContent = "Nenhum resultado para a busca";
       el.emptyDesc.textContent =
@@ -370,7 +363,7 @@ el.form.addEventListener("submit", async (event) => {
   if (state.isSubmitting) return;
 
   if (!isFirebaseConfigured()) {
-    showToast("Configure o arquivo js/firebase-config.js primeiro.", "error");
+    showToast("Serviço indisponível: configuração pendente.", "error");
     return;
   }
 
@@ -408,8 +401,11 @@ el.form.addEventListener("submit", async (event) => {
       el.inputs.marca.focus();
     }
   } catch (err) {
-    console.error("Erro na persistência Firestore:", err);
-    showToast(err.message || "Falha ao comunicar com o Firebase.", "error");
+    console.error("Erro na operação de persistência:", err);
+    showToast(
+      err.message || "Não foi possível salvar os dados no momento.",
+      "error",
+    );
   } finally {
     state.isSubmitting = false;
     el.btnSubmit.disabled = false;
@@ -455,7 +451,7 @@ el.btnConfirmDelete.addEventListener("click", async () => {
     if (state.editingId === targetId) {
       exitEditMode(true);
     }
-    showToast("Automóvel removido da base de dados.", "success");
+    showToast("Automóvel removido do cadastro.", "success");
     closeDeleteModal();
   } catch (err) {
     console.error("Erro ao excluir:", err);
@@ -474,8 +470,7 @@ function init() {
     el.configAlert.classList.remove("hidden");
     el.loadingState.classList.add("hidden");
     el.emptyState.classList.remove("hidden");
-    el.resultsCount.textContent = "Aguardando credenciais do Firebase";
-    setConnectionBadge("offline", "Firebase não configurado");
+    el.resultsCount.textContent = "Serviço aguardando configuração";
     return;
   }
 
@@ -486,19 +481,21 @@ function init() {
       // Caso o veículo em edição tenha sido excluído remotamente por outro membro do grupo
       if (state.editingId && !vehicles.some((v) => v.id === state.editingId)) {
         exitEditMode(true);
-        showToast("O automóvel em edição foi removido remotamente.", "warning");
+        showToast(
+          "O automóvel em edição foi removido por outro usuário.",
+          "warning",
+        );
       }
 
-      setConnectionBadge("online", "Firestore Sincronizado");
       updateKPIs();
       renderVehicleList();
     },
     (error) => {
-      console.error("Erro no listener do Firestore:", error);
+      console.error("Erro na leitura do banco de dados:", error);
       el.loadingState.classList.add("hidden");
-      setConnectionBadge("offline", "Erro de permissão / rede");
+      el.resultsCount.textContent = "Indisponível no momento";
       showToast(
-        "Erro ao ler o Firestore. Verifique as Regras de Segurança.",
+        "Não foi possível carregar os automóveis. Verifique sua conexão.",
         "error",
       );
     },
