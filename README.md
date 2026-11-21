@@ -198,4 +198,4 @@ A aplicação está integrada via GitHub à plataforma **Vercel**:
 
 Projeto final desenvolvido para a disciplina de Desenvolvimento de Aplicações Web:
 
-- **Wagner Oliveira Claudiano** — [@WagnerxOliveira](https://github.com/WagnerxOliveira)
+- **Wagner Oliveira** — [@WagnerxOliveira](https://github.com/WagnerxOliveira)
