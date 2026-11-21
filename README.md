@@ -1,33 +1,44 @@
 # 🚗 AutoFleet — Sistema Web de Gestão e Manutenção de Automóveis
 
 [![Produção Vercel](https://img.shields.io/badge/Demo_Online-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://autofleet-veiculos.vercel.app/)
+[![Apresentação YouTube](https://img.shields.io/badge/Apresenta%C3%A7%C3%A3o-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=XND7SOmEZbg)
 [![Firebase Firestore](https://img.shields.io/badge/Cloud_Firestore-v12.11.0-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/docs/firestore)
 [![JavaScript ES6+](https://img.shields.io/badge/JavaScript-ES6+_Modules-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Modules)
 [![HTML5 & CSS3](https://img.shields.io/badge/UI_Responsiva-HTML5_%26_CSS3-2563EB?style=for-the-badge&logo=html5&logoColor=white)](https://autofleet-veiculos.vercel.app/)
 
 Aplicação Web reativa em tempo real para **cadastro, listagem, manutenção (alteração) e exclusão de automóveis**, desenvolvida com **JavaScript Modular (ES6+)** em arquitetura de camadas e persistência em nuvem via **Google Firebase (Cloud Firestore)**.
 
-🔗 **Acesse a aplicação em produção:** [https://autofleet-veiculos.vercel.app/](https://autofleet-veiculos.vercel.app/)  
-📦 **Repositório oficial:** [https://github.com/WagnerxOliveira/autofleet-veiculos](https://github.com/WagnerxOliveira/autofleet-veiculos)
+🔗 **Aplicação em produção (Vercel):** [https://autofleet-veiculos.vercel.app/](https://autofleet-veiculos.vercel.app/)  
+🎥 **Vídeo de apresentação (YouTube):** [https://www.youtube.com/watch?v=XND7SOmEZbg](https://www.youtube.com/watch?v=XND7SOmEZbg)  
+📦 **Repositório oficial (GitHub):** [https://github.com/WagnerxOliveira/autofleet-veiculos](https://github.com/WagnerxOliveira/autofleet-veiculos)
 
 ---
 
 ## 📌 Sumário
 
-1. [Atendimento aos Requisitos do Projeto](#-1-atendimento-aos-requisitos-do-projeto)
-2. [Diferenciais de Engenharia e Mercado](#-2-diferenciais-de-engenharia-e-mercado)
-3. [Arquitetura e Fluxo de Dados](#-3-arquitetura-e-fluxo-de-dados)
-4. [Estrutura de Diretórios](#-4-estrutura-de-diretórios)
-5. [Modelagem do Banco de Dados (NoSQL)](#-5-modelagem-do-banco-de-dados-nosql)
-6. [Segurança e Validação de Domínio](#-6-segurança-e-validação-de-domínio)
-7. [Como Executar Localmente no VS Code](#-7-como-executar-localmente-no-vs-code)
-8. [Roteiro de Testes Funcionais (QA)](#-8-roteiro-de-testes-funcionais-qa)
-9. [Deploy Contínuo (CI/CD)](#-9-deploy-contínuo-cicd)
-10. [Equipe e Autoria](#-10-equipe-e-autoria)
+1. [Apresentação em Vídeo](#-1-apresentação-em-vídeo)
+2. [Atendimento aos Requisitos do Projeto](#-2-atendimento-aos-requisitos-do-projeto)
+3. [Diferenciais de Engenharia e Mercado](#-3-diferenciais-de-engenharia-e-mercado)
+4. [Arquitetura e Fluxo de Dados](#-4-arquitetura-e-fluxo-de-dados)
+5. [Estrutura de Diretórios](#-5-estrutura-de-diretórios)
+6. [Modelagem do Banco de Dados (NoSQL)](#-6-modelagem-do-banco-de-dados-nosql)
+7. [Segurança e Validação de Domínio](#-7-segurança-e-validação-de-domínio)
+8. [Como Executar Localmente no VS Code](#-8-como-executar-localmente-no-vs-code)
+9. [Roteiro de Testes Funcionais (QA)](#-9-roteiro-de-testes-funcionais-qa)
+10. [Deploy Contínuo (CI/CD)](#-10-deploy-contínuo-cicd)
+11. [Equipe e Autoria](#-11-equipe-e-autoria)
 
 ---
 
-## ✅ 1. Atendimento aos Requisitos do Projeto
+## 🎥 1. Apresentação em Vídeo
+
+A demonstração completa das funcionalidades da aplicação — incluindo cadastro de veículos, listagem reativa, edição de registros existentes e comprovação em tempo real da persistência dos documentos no console do **Firebase Cloud Firestore** — está disponível no YouTube:
+
+▶️ **Assistir à demonstração completa:** [https://www.youtube.com/watch?v=XND7SOmEZbg](https://www.youtube.com/watch?v=XND7SOmEZbg)
+
+---
+
+## ✅ 2. Atendimento aos Requisitos do Projeto
 
 A tabela abaixo relaciona cada exigência especificada na disciplina com a implementação técnica entregue:
 
@@ -46,7 +57,7 @@ A tabela abaixo relaciona cada exigência especificada na disciplina com a imple
 
 ---
 
-## 🚀 2. Diferenciais de Engenharia e Mercado
+## 🚀 3. Diferenciais de Engenharia e Mercado
 
 Além do escopo obrigatório, a solução incorpora práticas modernas de desenvolvimento de software e qualidade:
 
@@ -59,7 +70,7 @@ Além do escopo obrigatório, a solução incorpora práticas modernas de desenv
 
 ---
 
-## 🏗️ 3. Arquitetura e Fluxo de Dados
+## 🧩 4. Arquitetura e Fluxo de Dados
 
 O projeto adota **Arquitetura em Camadas com Separação de Responsabilidades (SoC)** baseada em **ES6 Modules** nativos do navegador, dispensando _bundlers_ complexos e mantendo o código limpo e testável:
 
@@ -75,7 +86,7 @@ flowchart LR
 
 ---
 
-## 📂 4. Estrutura de Diretórios
+## 📂 5. Estrutura de Diretórios
 
 ```text
 autofleet-veiculos/
@@ -94,7 +105,7 @@ autofleet-veiculos/
 
 ---
 
-## 🗄️ 5. Modelagem do Banco de Dados (NoSQL)
+## 📊 6. Modelagem do Banco de Dados (NoSQL)
 
 Os registros são armazenados no **Cloud Firestore** (região `southamerica-east1` — São Paulo) dentro da coleção **`automoveis`**. Cada documento possui ID único gerado automaticamente e segue o contrato abaixo:
 
@@ -115,10 +126,10 @@ Os registros são armazenados no **Cloud Firestore** (região `southamerica-east
 {
   "marca": "Volkswagen",
   "modelo": "Nivus Highline 200 TSI",
-  "cor": "Cinza",
+  "cor": "Azul",
   "placa": "BRA2E19",
-  "anoFabricacao": 2025,
-  "kmRodada": 14200,
+  "anoFabricacao": 2026,
+  "kmRodada": 0,
   "criadoEm": "2026-11-20T22:30:00.000Z",
   "atualizadoEm": "2026-11-20T22:35:12.000Z"
 }
@@ -126,7 +137,7 @@ Os registros são armazenados no **Cloud Firestore** (região `southamerica-east
 
 ---
 
-## 🛡️ 6. Segurança e Validação de Domínio
+## 🔒 7. Segurança e Validação de Domínio
 
 1. **Mitigação Total contra XSS (Cross-Site Scripting):** Toda a renderização dinâmica da tabela em `js/app.js` utiliza exclusivamente criação segura de nós da DOM API (`document.createElement` e `element.textContent`), impedindo injeção de scripts maliciosos via campos de texto.
 2. **Dupla Camada de Validação (Client-Side + Server-Side):**
@@ -135,7 +146,7 @@ Os registros são armazenados no **Cloud Firestore** (região `southamerica-east
 
 ---
 
-## 💻 7. Como Executar Localmente no VS Code
+## 💻 8. Como Executar Localmente no VS Code
 
 Por utilizar **ES6 Modules** nativos (`<script type="module">`), os navegadores exigem execução sob protocolo HTTP/HTTPS (não abra diretamente via `file://`).
 
@@ -155,26 +166,26 @@ Por utilizar **ES6 Modules** nativos (`<script type="module">`), os navegadores 
    _(Alternativamente, utilize a extensão **Live Server** do VS Code clicando com o botão direito em `index.html` > **Open with Live Server**)._
 
 3. **Acesse no navegador:**
-   Abra `http://localhost:3000` (ou a porta indicada no terminal) e verifique o selo verde **Firestore Sincronizado** no canto superior direito.
+   Abra `http://localhost:3000` (ou a porta indicada no terminal) para utilizar a aplicação.
 
 ---
 
-## 🧪 8. Roteiro de Testes Funcionais (QA)
+## 🧪 9. Roteiro de Testes Funcionais (QA)
 
 Roteiro estruturado para validação completa em produção ([https://autofleet-veiculos.vercel.app/](https://autofleet-veiculos.vercel.app/)):
 
 | ID        | Caso de Teste                        | Dados de Entrada / Ação                                                                                                | Resultado Esperado                                                                                                        |
 | :-------- | :----------------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| **CT-01** | Cadastro com Placa Mercosul          | Marca: `Toyota`, Modelo: `Corolla`, Placa: `ABC1D23`, Cor: `Prata`, Ano: `2024`, Km: `15000`                           | Veículo salvo no Firestore, exibido instantaneamente na tabela com placa padrão Mercosul e KPIs atualizados.              |
-| **CT-02** | Cadastro Veículo 0 km e Placa Antiga | Marca: `Fiat`, Modelo: `Pulse`, Placa: `XYZ-9876`, Cor: `Branco`, Ano: `2026`, Km: `0`                                 | Hífen normalizado no banco (`XYZ9876`), exibição formatada como `XYZ-9876` (tarja cinza) e aceitação válida de `0 km`.    |
-| **CT-03** | Bloqueio de Placa Duplicada          | Tentar cadastrar novo veículo com a placa `ABC1D23` já existente                                                       | Sistema bloqueia a gravação e exibe notificação informando que já existe automóvel com essa placa.                        |
-| **CT-04** | Alteração de Automóvel Cadastrado    | Clicar em **Editar** no veículo `ABC1D23`, alterar Km para `18500` e Cor para `Preto`, clicar em **Salvar Alterações** | Documento atualizado no Firestore, linha atualizada em tempo real na listagem e retorno do formulário ao modo de criação. |
+| **CT-01** | Cadastro com Placa Mercosul          | Marca: `Toyota`, Modelo: `Corolla Altis Hybrid`, Placa: `RTM4G21`, Cor: `Prata`, Ano: `2025`, Km: `18400`              | Veículo salvo no Firestore, exibido instantaneamente na tabela com placa padrão Mercosul e KPIs atualizados.              |
+| **CT-02** | Cadastro Veículo 0 km e Placa Antiga | Marca: `Honda`, Modelo: `Civic EXL 2.0`, Placa: `HND-4712`, Cor: `Cinza`, Ano: `2017`, Km: `0`                         | Hífen normalizado no banco (`HND4712`), exibição formatada como `HND-4712` (tarja cinza) e aceitação válida de `0 km`.    |
+| **CT-03** | Bloqueio de Placa Duplicada          | Tentar cadastrar novo veículo com a placa `RTM4G21` já existente                                                       | Sistema bloqueia a gravação e exibe notificação informando que já existe automóvel com essa placa.                        |
+| **CT-04** | Alteração de Automóvel Cadastrado    | Clicar em **Editar** no veículo `RTM4G21`, alterar Km para `19200` e Cor para `Preto`, clicar em **Salvar Alterações** | Documento atualizado no Firestore, linha atualizada em tempo real na listagem e retorno do formulário ao modo de criação. |
 | **CT-05** | Validação de Campos Inválidos        | Submeter formulário vazio ou com Ano `1850` / Km negativa                                                              | Submissão impedida no cliente com destaque visual nos campos inválidos e mensagens orientativas abaixo de cada input.     |
 | **CT-06** | Persistência após Reload             | Pressionar `F5` no navegador                                                                                           | Todos os registros permanecem carregados diretamente do Cloud Firestore.                                                  |
 
 ---
 
-## 🌐 9. Deploy Contínuo (CI/CD)
+## 🌐 10. Deploy Contínuo (CI/CD)
 
 A aplicação está integrada via GitHub à plataforma **Vercel**:
 
@@ -183,8 +194,8 @@ A aplicação está integrada via GitHub à plataforma **Vercel**:
 
 ---
 
-## 👨‍💻 10. Equipe e Autoria
+## 👨‍💻 11. Equipe e Autoria
 
 Projeto final desenvolvido para a disciplina de Desenvolvimento de Aplicações Web:
 
-- **Wagner Oliveira** — [@WagnerxOliveira](https://github.com/WagnerxOliveira)
+- **Wagner Oliveira Claudiano** — [@WagnerxOliveira](https://github.com/WagnerxOliveira)
