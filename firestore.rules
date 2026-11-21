@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidVehicle(data) {
+      return data.keys().hasAll([
+          'marca',
+          'modelo',
+          'cor',
+          'placa',
+          'anoFabricacao',
+          'kmRodada'
+        ])
+        && data.marca is string
+        && data.marca.size() >= 2
+        && data.marca.size() <= 50
+        && data.modelo is string
+        && data.modelo.size() >= 1
+        && data.modelo.size() <= 60
+        && data.cor is string
+        && data.cor.size() >= 3
+        && data.cor.size() <= 30
+        && data.placa is string
+        && data.placa.matches('^[A-Z]{3}([0-9]{4}|[0-9][A-Z][0-9]{2})$')
+        && data.anoFabricacao is number
+        && data.anoFabricacao >= 1900
+        && data.anoFabricacao <= 2027
+        && data.kmRodada is number
+        && data.kmRodada >= 0
+        && data.kmRodada <= 9999999;
+    }
+
+    match /automoveis/{autoId} {
+      allow read: if true;
+      allow create, update: if isValidVehicle(request.resource.data);
+      allow delete: if true;
+    }
+  }
+}
